@@ -10,3 +10,20 @@ const disc_over65 = 0.4;
 
 //process
 
+btn.addEventListener('click', calc_price => {
+
+    let age = age_field.value;
+    let km = km_field.value;
+
+    let total_price = (km * price_for_km);
+
+    if (age < 18) {
+        total_price = total_price - (total_price * disc_underage);
+        console.log(total_price.toFixed(2) + "€");
+    } else if (age >= 65) {
+        total_price = total_price - (total_price *disc_over65);
+        console.log(total_price.toFixed(2) + "€");
+    } else {
+        console.log(total_price.toFixed(2) + "€");
+    }
+})
