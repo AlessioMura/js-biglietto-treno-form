@@ -1,6 +1,6 @@
 //milestone 1
 //prep
-
+let name_field = document.getElementById('name')
 let age_field = document.getElementById('age_select');
 let km_field = document.getElementById('km');
 let btn = document.getElementById('confirm_btn');
@@ -19,11 +19,15 @@ btn.addEventListener('click', calc_price => {
     let price_disc_over = full_ticket_price - (full_ticket_price *disc_over65);
 
 
-    if (age === '1') {
-        console.log(price_disc_under.toFixed(2) + "€");
-    } else if (age === '3') {
-        console.log(price_disc_over.toFixed(2) + "€");
+    if (age === 'underage') {
+        document.getElementById('ticket_type').innerHTML = ('Underage discount')
+        document.getElementById('price').innerHTML = (price_disc_under.toFixed(2) + "€");
+    } else if (age === 'over_65') {
+        document.getElementById('ticket_type').innerHTML = ('Over 65 discount')
+        document.getElementById('price').innerHTML = (price_disc_over.toFixed(2) + "€");
     } else {
-        console.log(full_ticket_price.toFixed(2) + "€");
+        document.getElementById('ticket_type').innerHTML = ('Standard ticket')
+        document.getElementById('price').innerHTML = (full_ticket_price.toFixed(2) + "€");
     }
-})
+    
+});
